@@ -1,0 +1,20 @@
+{
+  "name": "reading-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A simple, light reading dashboard — world news, economics research, and essays as tiles.",
+  "main": "server.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "build:static": "node build-static.mjs",
+    "fetch": "node -e \"import('./lib/feeds.js').then(m=>m.refreshAndCache().then(()=>console.log('done')))\""
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "node-cron": "^3.0.3"
+  }
+}

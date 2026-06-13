@@ -1,0 +1,18 @@
+# Render Blueprint — deploys the reading dashboard as a free web service.
+# In Render: New + → Blueprint → connect this repo → Apply.
+services:
+  - type: web
+    name: reading-dashboard
+    runtime: node
+    plan: free
+    region: oregon            # change to singapore if you prefer (closer to India)
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      # Free tier has an ephemeral filesystem → keep bookmarks in the browser.
+      - key: CLIENT_BOOKMARKS
+        value: "1"
+      - key: NODE_VERSION
+        value: "22"

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reading Dashboard</title>
+  <meta name="description" content="Your morning reading — world news, economics research, and essays." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>📖</text></svg>" />
+  <link rel="preconnect" href="https://www.theguardian.com" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <h1>Reading</h1>
+        <p class="tagline">Your morning desk — refreshed daily</p>
+      </div>
+      <div class="header-actions">
+        <div class="search">
+          <input id="search" type="search" placeholder="Filter articles…" aria-label="Filter articles" autocomplete="off" />
+        </div>
+        <div class="tabs" role="tablist" aria-label="Choose view">
+          <button id="tab-feed" class="tab is-active" type="button" role="tab" aria-selected="true" aria-controls="feed-view">Feed</button>
+          <button id="tab-saved" class="tab" type="button" role="tab" aria-selected="false" aria-controls="saved-view">
+            Saved <span id="saved-count" class="badge" hidden>0</span>
+          </button>
+        </div>
+        <button id="refresh" class="btn-refresh" type="button" title="Fetch the latest articles">
+          <span class="refresh-icon" aria-hidden="true">↻</span>
+          <span class="refresh-label">Refresh</span>
+        </button>
+      </div>
+    </div>
+    <p id="updated" class="updated" aria-live="polite"></p>
+  </header>
+
+  <main id="main">
+    <div id="status" class="status" role="status">Loading your reading…</div>
+    <div id="feed-view" role="tabpanel" aria-labelledby="tab-feed"></div>
+    <section id="saved-view" role="tabpanel" aria-labelledby="tab-saved" hidden>
+      <div class="section-head"><h2>Saved articles</h2></div>
+      <div id="saved-list" class="saved-list"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Sources link out to their publishers. Reuters, Ideas for India &amp; World Bank Blogs are gathered via Google News (no public feed).</p>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

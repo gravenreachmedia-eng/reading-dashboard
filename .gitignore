@@ -1,0 +1,6 @@
+node_modules/
+data/
+.playwright-mcp/
+*.log
+_*.xml
+reading-dashboard.html
